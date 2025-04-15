@@ -2,11 +2,9 @@
 English
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Tic-Tac-Toe
-
 A web-based Tic-Tac-Toe game built with Go and JavaScript, designed using Domain-Driven Design (DDD) principles.
 
 ## Overview
-
 This project is a single-player Tic-Tac-Toe game where users can alternate between X and O moves on a 3x3 board. The backend is implemented in Go, providing a REST API to manage game state, while the frontend uses JavaScript to render the game board and handle user interactions. The project showcases a clean architecture with DDD, separating concerns into domain, application, infrastructure, and transport layers.
 
 ### Features
@@ -24,56 +22,55 @@ This project is a single-player Tic-Tac-Toe game where users can alternate betwe
 
 ## Installation
 1. Clone the repository:
-git clone https://github.com/your-username/tic-tac-toe.git
-cd tic-tac-toe
-
+- git clone https://github.com/your-username/tic-tac-toe.git
+- cd tic-tac-toe
 
 Verify Go is installed:
--- go version
+- go version
 
-################################### Running the Game ###################################
+## Running the Game
 1. Start the server:
--- go run main.go
+- go run main.go
 
 You should see:
--- Server running on http://localhost:8080
+Server running on http://localhost:8080
+
 2. Open your browser and navigate to:
-http://localhost:8080
+- http://localhost:8080
 
-################################### How to Play ###################################
-
+## How to Play
 Make a move: Click an empty cell to place X or O (players alternate automatically).
 View status: The status bar shows whose turn it is ("Ходит: X") or the winner ("Победитель: X").
 Reset game: Click the "Restart" button to start a new game.
 Note: Clicks are disabled after a winner is determined to prevent further moves.
 
 
-################################### Project Structure ###################################
+## Project Structure
 The project is organized according to Domain-Driven Design (DDD):
 
-domain/: Core logic for Tic-Tac-Toe.
+- domain/: Core logic for Tic-Tac-Toe.
 Defines the Game entity with methods like MakeMove, Reset, and checkWinner.
 Implements rules for valid moves, winner detection, and player switching.
-application/: Application layer coordinating use cases.
+- application/: Application layer coordinating use cases.
 GameService manages operations like creating games, making moves, and resetting.
 Uses a GameRepository interface for data access.
-infrastructure/: Infrastructure layer.
+- infrastructure/: Infrastructure layer.
 InMemoryGameRepository implements GameRepository for in-memory storage.
-transport/: HTTP layer.
+- transport/: HTTP layer.
 GameHandler processes REST API requests and serves static files (HTML, JS, images).
-static/: Frontend assets.
+- static/: Frontend assets.
 script.js: JavaScript for rendering the board and handling user interactions.
 cross.png, zero.png: Images for X and O.
-templates/: HTML template (index.html) for the game UI.
+- templates/: HTML template (index.html) for the game UI.
 
-################################### API Endpoints ###################################
+## API Endpoints
 The backend exposes a REST API for game operations at http://localhost:8080/game/.
 
-Method → GET	Endpoint → /game/	Description → Get current game state		Request Body → None		Response Body → { "board": [9]string, "turn": "X"/"O", "winner": ""/"X"/"O", "winning_cells": []int }
-Method → POST	Endpoint → /game/	Description → Make a move at specified index	Request Body → { "index": 0-8 }	Response Body → Same as GET
-Method → DELETE	Endpoint → /game/	Description → Reset the game to initial state	Request Body → None		Response Body → Same as GET
+- Method → GET	Endpoint → /game/	Description → Get current game state		Request Body → None		Response Body → { "board": [9]string, "turn": "X"/"O", "winner": ""/"X"/"O", "winning_cells": []int }
+- Method → POST	Endpoint → /game/	Description → Make a move at specified index	Request Body → { "index": 0-8 }	Response Body → Same as GET
+- Method → DELETE	Endpoint → /game/	Description → Reset the game to initial state	Request Body → None		Response Body → Same as GET
 
-Example Response
+### Example Response
 json
 {
   "board": ["", "X", "", "", "O", "", "", "", ""],
@@ -86,41 +83,41 @@ Error Responses
 400 Bad Request: Invalid move (e.g., occupied cell) or malformed JSON.
 500 Internal Server Error: Server-side issues (e.g., repository failure).
 
-################################### Development ###################################
+## Development
 To extend or modify the project:
 
-Backend:
+### Backend:
 Edit Go files in domain/, application/, infrastructure/, or transport/.
 Run go mod tidy to sync dependencies (if any are added).
 
 Format code:
--- go fmt ./...
+- go fmt ./...
 
-Frontend:
+### Frontend:
 Update static/script.js for UI logic.
 Modify templates/index.html for layout changes.
 Add new assets (e.g., CSS) to static/.
 
-Testing:
+### Testing:
 Currently, no unit tests are implemented. To add tests:
--- go test ./...
+- go test ./...
 
-Build:
+### Build:
 Compile the project:
--- go build ./...
+- go build ./...
 
-###################################### Running with Docker ######################################
+## Running with Docker
 You can run the game in a Docker container for easy deployment.
 
-## Prerequisites
--- [Docker](https://www.docker.com/get-started) is installed on your computer
+### Prerequisites
+[Docker](https://www.docker.com/get-started) is installed on your computer
 
-## Steps
+### Steps
 1. Build the Docker image:
-docker build -t tic-tac-toe .
+- docker build -t tic-tac-toe .
 
 2. Run the container:
-docker run -p 8080:8080 --rm tic-tac-toe
+- docker run -p 8080:8080 --rm tic-tac-toe
 
 3. Open your browser and navigate to:
 http://localhost:8080
@@ -156,54 +153,54 @@ Russian
 
 ## Установка
 1. Клонируйте репозиторий:
-git clone https://github.com/your-username/tic-tac-toe.git
-cd tic-tac-toe
+- git clone https://github.com/your-username/tic-tac-toe.git
+- cd tic-tac-toe
 
 Проверьте, установлен ли Go:
--- go version
+- go version
 
-#################################### Запуск игры #####################################
+## Запуск игры
 1. Запустите сервер:
--- go run main.go
+- go run main.go
 
 Вы должны увидеть:
--- Server running on http://localhost:8080
+Server running on http://localhost:8080
+
 2. Откройте браузер и перейдите по адресу:
 http://localhost:8080
 
-###################################### Как играть #####################################
-
+## Как играть
 Сделать ход: Щелкните пустую ячейку, чтобы поставить X или O (игроки меняются автоматически)
 Просмотр статуса: В строке статуса отображается чей ход («Ходит: X») или победитель («Победитель: X»)
 Сбросить игру: Нажмите кнопку «Перезапустить», чтобы начать новую игру
 Примечание: После определения победителя щелчки отключаются, чтобы предотвратить дальнейшие ходы
 
-######################################## Структура проекта ########################################
+## Структура проекта
 Проект организован в соответствии с Domain-Driven Design (DDD):
 
-domain/: Основная логика для Tic-Tac-Toe.
+- domain/: Основная логика для Tic-Tac-Toe.
 Определяет сущность Game с такими методами, как MakeMove, Reset и checkWinner
 Реализует правила для допустимых ходов, определения победителя и переключения игроков
-application/: Уровень приложения, координирующий варианты использования
+- application/: Уровень приложения, координирующий варианты использования
 GameService управляет такими операциями, как создание игр, выполнение ходов и сброс
 Использует интерфейс GameRepository для доступа к данным
-infrastructure/: Уровень инфраструктуры
+- infrastructure/: Уровень инфраструктуры
 InMemoryGameRepository реализует GameRepository для хранения в памяти
-transport/: Уровень HTTP
+- transport/: Уровень HTTP
 GameHandler обрабатывает запросы REST API и обслуживает статические файлы (HTML, JS, изображения)
-static/: Ресурсы интерфейса
+- static/: Ресурсы интерфейса
 script.js: JavaScript для рендеринга доски и обработки взаимодействий с пользователем
 cross.png, zero.png: Изображения для X и O
-templates/: HTML-шаблон (index.html) для игрового пользовательского интерфейса
+- templates/: HTML-шаблон (index.html) для игрового пользовательского интерфейса
 
-##################################### Конечные точки API ####################################
+## Конечные точки API
 Бэкэнд предоставляет REST API для игровых операций по адресу http://localhost:8080/game/.
 
-Method → GET	Endpoint → /game/ Получить текущее состояние игры	Request Body → None		Response Body → { "board": [9]string, "turn": "X"/"O", "winner": ""/"X"/"O", "winning_cells": []int }
-Method → POST	Endpoint → /game/ Сделать ход по указанному индексу	Request Body → { "index": 0-8 }	Response Body → То же, что и GET
-Method → DELETE	Endpoint → /game/ Сбросить игру в начальное состояние	Request Body → None		Response Body → То же, что и GET
+- Method → GET	Endpoint → /game/ Получить текущее состояние игры	Request Body → None		Response Body → { "board": [9]string, "turn": "X"/"O", "winner": ""/"X"/"O", "winning_cells": []int }
+- Method → POST	Endpoint → /game/ Сделать ход по указанному индексу	Request Body → { "index": 0-8 }	Response Body → То же, что и GET
+- Method → DELETE	Endpoint → /game/ Сбросить игру в начальное состояние	Request Body → None		Response Body → То же, что и GET
 
-Пример ответа
+### Пример ответа
 json
 {
 "board": ["", "X", "", "", "O", "", "", "", ""],
@@ -216,7 +213,7 @@ json
 400 Неправильный запрос: Недопустимый ход (например, занятая ячейка) или некорректный JSON
 500 Внутренняя ошибка сервера: Проблемы на стороне сервера (например, сбой репозитория)
 
-###################################### Разработка ######################################
+## Разработка
 Чтобы расширить или изменить проект:
 
 Бэкэнд:
@@ -224,7 +221,7 @@ json
 Запустите go mod tidy, чтобы синхронизировать зависимости (если таковые добавлены)
 
 Код форматирования:
--- go fmt ./...
+- go fmt ./...
 
 Фронтенд:
 Обновите static/script.js для логики пользовательского интерфейса
@@ -233,25 +230,25 @@ json
 
 Тестирование:
 В настоящее время модульные тесты не реализованы. Чтобы добавить тесты:
--- go test ./...
+- go test ./...
 
 Сборка:
 Скомпилируйте проект:
--- go build ./...
+- go build ./...
 
 
-###################################### Запуск с Docker ###################################### 
+## Запуск с Docker
 Вы можете запустить игру в контейнере Docker для простого развертывания
 
-## Предварительные условия
--- [Docker](https://www.docker.com/get-started) установлен на вашем компьютере
+### Предварительные условия
+[Docker](https://www.docker.com/get-started) установлен на вашем компьютере
 
-## Шаги
+### Шаги
 1. Соберите образ Docker:
-docker build -t tic-tac-toe .
+- docker build -t tic-tac-toe .
 
 2. Запустите контейнер:
-docker run -p 8080:8080 --rm tic-tac-toe
+- docker run -p 8080:8080 --rm tic-tac-toe
 
 3. Откройте браузер и перейдите по адресу:
 http://localhost:8080
