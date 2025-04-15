@@ -1,0 +1,13 @@
+# Go binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Temporary files
+tmp/
+
+# IDE files
+.idea/
+*.iml
