@@ -18,15 +18,14 @@ This project is a single-player Tic-Tac-Toe game where users can alternate betwe
 - In-memory storage for game state.
 
 ## Requirements
-- [Go](https://golang.org/dl/) 1.21 or higher
+- [Go](https://golang.org/dl/) 1.23 or higher
 - A modern web browser (e.g., Chrome, Firefox, Edge)
 - No external dependencies required
 
 ## Installation
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/tic-tac-toe.git
-   cd tic-tac-toe
+git clone https://github.com/your-username/tic-tac-toe.git
+cd tic-tac-toe
 
 
 Verify Go is installed:
@@ -151,13 +150,12 @@ Russian
 - Хранилище в памяти для состояния игры
 
 ## Требования
-- [Go](https://golang.org/dl/) 1.21 или выше
+- [Go](https://golang.org/dl/) 1.23 или выше
 - Современный веб-браузер (например, Chrome, Firefox, Edge)
 - Не требуется никаких внешних зависимостей
 
 ## Установка
 1. Клонируйте репозиторий:
-```bash
 git clone https://github.com/your-username/tic-tac-toe.git
 cd tic-tac-toe
 
