@@ -1,0 +1,30 @@
+# Git-related files
+.git
+.gitignore
+
+# Documentation and temporary files
+README.md
+LICENSE
+docs/
+*.md
+tmp/
+
+# GoLand IDE files
+.idea/
+*.iml
+
+# Editor and other IDE files
+.vscode/
+*.code-workspace
+
+# Go test and build artifacts
+*.test
+*.prof
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Local environment files
+.env

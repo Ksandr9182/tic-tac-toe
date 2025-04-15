@@ -110,6 +110,27 @@ Build:
 Compile the project:
 -- go build ./...
 
+###################################### Running with Docker ######################################
+You can run the game in a Docker container for easy deployment.
+
+## Prerequisites
+-- [Docker](https://www.docker.com/get-started) is installed on your computer
+
+## Steps
+1. Build the Docker image:
+docker build -t tic-tac-toe .
+
+2. Run the container:
+docker run -p 8080:8080 --rm tic-tac-toe
+
+3. Open your browser and navigate to:
+http://localhost:8080
+
+Notes
+The -p 8080:8080 flag maps port 8080 in the container to port 8080 on your host
+The --rm flag removes the container after it is stopped
+Ensure that port 8080 on your computer is free
+
 
 Russian
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -220,4 +241,25 @@ json
 Скомпилируйте проект:
 -- go build ./...
 
+
+###################################### Запуск с Docker ###################################### 
+Вы можете запустить игру в контейнере Docker для простого развертывания
+
+## Предварительные условия
+-- [Docker](https://www.docker.com/get-started) установлен на вашем компьютере
+
+## Шаги
+1. Соберите образ Docker:
+docker build -t tic-tac-toe .
+
+2. Запустите контейнер:
+docker run -p 8080:8080 --rm tic-tac-toe
+
+3. Откройте браузер и перейдите по адресу:
+http://localhost:8080
+
+Примечания
+Флаг -p 8080:8080 сопоставляет порт 8080 в контейнере с портом 8080 на вашем хосте
+Флаг --rm удаляет контейнер после его остановки
+Убедитесь, что порт 8080 на вашем компьютере свободен
 
